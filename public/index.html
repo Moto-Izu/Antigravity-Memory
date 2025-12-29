@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE PRISM // NEURAL DASHBOARD</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="scanline"></div>
+    <div class="overlay"></div>
+
+    <header>
+        <div class="brand">
+            <span class="glitch" data-text="PRISM">PRISM</span>
+            <span class="sub">SOCIAL RESONANCE ENGINE</span>
+        </div>
+        <div class="status-panel">
+            <div class="stat">
+                <span class="label">UPLINK</span>
+                <span class="value on">ACTIVE</span>
+            </div>
+            <div class="stat">
+                <span class="label">ATOMS</span>
+                <span class="value" id="atom-count">0000</span>
+            </div>
+        </div>
+    </header>
+
+    <main id="feed">
+        <!-- Atoms will materialize here -->
+    </main>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

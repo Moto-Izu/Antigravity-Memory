@@ -1,0 +1,183 @@
+:root {
+    --bg-void: #050505;
+    --neon-cyan: #00f3ff;
+    --neon-magenta: #ff00ff;
+    --glass-bg: rgba(20, 20, 20, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --font-mono: 'Courier New', Courier, monospace;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-void);
+    color: #eee;
+    font-family: var(--font-mono);
+    overflow-x: hidden;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* CRT Scanline Effect */
+.scanline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.2));
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid var(--glass-border);
+    background: black;
+    z-index: 100;
+}
+
+.brand {
+    display: flex;
+    flex-direction: column;
+}
+
+.glitch {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--neon-cyan);
+    text-shadow: 0 0 10px var(--neon-cyan);
+}
+
+.sub {
+    font-size: 0.8rem;
+    color: #666;
+    letter-spacing: 2px;
+}
+
+.status-panel {
+    display: flex;
+    gap: 20px;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.label {
+    font-size: 0.6rem;
+    color: #666;
+}
+
+.value {
+    font-size: 1.2rem;
+    color: var(--neon-magenta);
+}
+
+.value.on {
+    color: #0f0;
+    text-shadow: 0 0 5px #0f0;
+}
+
+/* Feed Grid */
+#feed {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    align-content: start;
+}
+
+/* Atom Card */
+.atom-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-left: 3px solid var(--neon-cyan);
+    padding: 15px;
+    border-radius: 4px;
+    backdrop-filter: blur(5px);
+    transition: transform 0.2s, box-shadow 0.2s;
+    opacity: 0;
+    animation: materialize 0.5s forwards;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.atom-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 243, 255, 0.2);
+    border-left-color: var(--neon-magenta);
+}
+
+.atom-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.atom-author {
+    color: var(--neon-cyan);
+    font-weight: bold;
+}
+
+.atom-content {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    word-break: break-word;
+}
+
+.atom-media img {
+    max-width: 100%;
+    margin-top: 10px;
+    border: 1px solid #333;
+    filter: grayscale(80%);
+    transition: filter 0.3s;
+}
+
+.atom-media img:hover {
+    filter: grayscale(0%);
+}
+
+@keyframes materialize {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--neon-cyan);
+}

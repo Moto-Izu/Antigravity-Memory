@@ -1,0 +1,139 @@
+:root {
+    font-family: 'Inter', 'Noto Sans JP', system-ui, -apple-system, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    color-scheme: dark;
+    --bg-color: #0a0a0c;
+    --panel-bg: rgba(26, 26, 29, 0.7);
+    --accent-gold: #c5a059;
+    --accent-blue: #4a90e2;
+    --text-primary: #f0f0f0;
+    --text-secondary: #a0a0a5;
+    --glass-border: rgba(255, 255, 255, 0.1);
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    overflow-x: hidden;
+}
+
+.spiral-container {
+    perspective: 1000px;
+    min-height: 400vh;
+    position: relative;
+}
+
+.glass-card {
+    background: var(--panel-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    max-width: 600px;
+    margin: 4rem auto;
+    transition: transform 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-gold);
+}
+
+h1,
+h2 {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.title-gradient {
+    background: linear-gradient(135deg, var(--accent-gold), #fff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.floating-nav {
+    position: fixed;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    display: flex;
+    gap: 1.5rem;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    padding: 0.8rem 2rem;
+    border-radius: 999px;
+    border: 1px solid var(--glass-border);
+}
+
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+}
+
+.persona-badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.badge-dean {
+    background: #4a90e2;
+    color: #fff;
+}
+
+.badge-anders {
+    background: #e24a4a;
+    color: #fff;
+}
+
+.badge-bellard {
+    background: #4ae24a;
+    color: #000;
+}
+
+.badge-karpathy {
+    background: #e2de4a;
+    color: #000;
+}
+
+.badge-antigravity {
+    background: linear-gradient(90deg, #4a90e2, #c5a059, #e24a4a);
+    color: #fff;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+    }
+
+    to {
+        box-shadow: 0 0 20px rgba(197, 160, 89, 0.6);
+    }
+}

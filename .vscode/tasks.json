@@ -1,0 +1,26 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "AgyOS: System Check",
+            "type": "shell",
+            "command": "echo 'AgyOS Kernel: Online. Internal Browser Redirection Active.'",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "AGO: Engage Orbit",
+            "type": "shell",
+            "command": "python3 ago_orbit.py",
+            "isBackground": true,
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        }
+    ]
+}
