@@ -88,6 +88,7 @@ d:/Prj/YOROZU/            <-- 🛰️ Mission Control (Current)
 ### 💻 Development (開発)
 - **[🏗️ Build App Simple](.agent/workflows/build-app-simple.md)**: 高速なプロトタイプ・アプリ開発。
 - **[💾 Git Auto Commit](.agent/workflows/git-auto-commit.md)**: 粒度の細かいコミットとブランチ管理の自動化。
+- **[📺 Discord News Generator](DiscordNews_README.md)**: DiscordログからNotebookLM用ニュース動画ソースを自動生成。
 
 ### 🎨 Branding & Assets (意匠)
 - **[🌸 Update YOROZU Identity](.agent/workflows/update-yorozu-identity.md)**: 既存リポジトリを「YOROZU」ブランドへ改装。
