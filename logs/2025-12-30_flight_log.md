@@ -68,3 +68,52 @@ node rally.mjs --sites chatgpt,grok,mistral,gemini --cdp http://127.0.0.1:9222
     Chromeを普通にアイコンから起動すると、AIは接続できません。AI操作が必要な作業をする時は、一度Chromeを終了し、`./launch_main_chrome.sh` から起動する癖をつけるとスムーズです。
 *   **警告が出る場合**:
     Chromeの上部に「自動テストソフトウェアによって制御されています」というバーが出ることがありますが、正常です。
+
+## 📜 Shared Script: launch_main_chrome.sh
+*(Save this as `~/Antigravity/llm-rally/launch_main_chrome.sh` on new machines)*
+
+```bash
+#!/bin/bash
+
+# Configuration
+CHROME_PATH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+# Standard Mac Chrome Profile Path
+DEFAULT_PROFILE_DIR="$HOME/Library/Application Support/Google/Chrome"
+DEBUG_PORT=9222
+
+# Colors
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
+echo -e "${GREEN}=== Antigravity Agentic Browser Launcher (Main Profile) ===${NC}"
+echo "This script enables AI control over your MAIN Chrome browser."
+
+# Check if Chrome is running
+if pgrep -f "Google Chrome" > /dev/null; then
+    # Check if it's already debuggable
+    if lsof -i :$DEBUG_PORT > /dev/null; then
+        echo -e "${GREEN}Success: Chrome is already running and ready for Agentic Control!${NC}"
+        exit 0
+    else
+        echo -e "${RED}⚠️  Action Required: Chrome is running but NOT controllable.${NC}"
+        echo "To give the AI eyes and hands, we must restart Chrome with special flags."
+        echo -e "${YELLOW}Please Quit Google Chrome completely (Cmd+Q) and run this script again.${NC}"
+        exit 1
+    fi
+fi
+
+echo "Launching Main Chrome Profile with Agentic Access..."
+
+# Launch command
+# We do NOT specify --user-data-dir ensures it uses the default system profile
+"$CHROME_PATH" \
+  --remote-debugging-port=$DEBUG_PORT \
+  --restore-last-session \
+  &
+
+echo -e "${GREEN}Chrome launched!${NC}"
+echo "You can now use your browser as usual."
+echo "The AI (Antigravity/Rally) can now connect to your open tabs."
+```
