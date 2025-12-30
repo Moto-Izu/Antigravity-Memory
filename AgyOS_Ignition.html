@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>AgyOS Ignition Hub</title>
+    <style>
+        body {
+            background: #000;
+            color: #00ffcc;
+            font-family: monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .box {
+            border: 2px solid #00ffcc;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 0 30px #00ffcc;
+        }
+
+        .btn {
+            display: block;
+            width: 250px;
+            padding: 15px;
+            margin: 10px;
+            background: transparent;
+            border: 1px solid #00ffcc;
+            color: #00ffcc;
+            text-decoration: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #00ffcc;
+            color: #000;
+        }
+
+        .warning {
+            color: #888;
+            font-size: 0.8rem;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h1>AGYOS CORE RELOAD</h1>
+        <p>DO NOT CLICK LINKS. USE CONTEXT MENU.</p>
+        <!-- 内部ブラウザで開くための絶対リンク -->
+        <a href="https://x.com/home" class="btn">IGNITE X (Internal)</a>
+        <a href="https://gemini.google.com/app" class="btn">IGNITE GEMINI (Internal)</a>
+        <div class="warning">
+            *If Dia opens, Copy URL and paste to the Browser Bar inside IDE.
+        </div>
+    </div>
+</body>
+
+</html>

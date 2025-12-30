@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AgyOS Dashboard - Browse Lite Edition</title>
+    <style>
+        :root {
+            --glow: #00ffcc;
+            --bg: #0a0a0a;
+        }
+
+        body {
+            background: var(--bg);
+            color: #fff;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .card {
+            border: 1px solid rgba(0, 255, 204, 0.3);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.4s;
+            background: rgba(0, 255, 204, 0.05);
+            text-decoration: none;
+            color: inherit;
+            width: 200px;
+        }
+
+        .card:hover {
+            border-color: var(--glow);
+            box-shadow: 0 0 30px var(--glow);
+            background: rgba(0, 255, 204, 0.15);
+            transform: translateY(-5px);
+        }
+
+        h1 {
+            font-weight: 200;
+            letter-spacing: 10px;
+            margin-bottom: 50px;
+            color: var(--glow);
+            text-shadow: 0 0 10px var(--glow);
+        }
+
+        .tag {
+            font-size: 0.7rem;
+            color: var(--glow);
+            margin-top: 10px;
+            opacity: 0.7;
+        }
+
+        /* AGO Status Bar Styles */
+        .ago-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 30px;
+            background: #111;
+            border-top: 1px solid var(--glow);
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            font-size: 0.75rem;
+            font-family: 'Courier New', monospace;
+            gap: 25px;
+            z-index: 1000;
+        }
+
+        .ago-brand {
+            background: var(--glow);
+            color: #000;
+            padding: 0 10px;
+            font-weight: bold;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            letter-spacing: 1px;
+        }
+
+        .ago-item {
+            display: flex;
+            gap: 8px;
+        }
+
+        .ago-label {
+            color: #666;
+        }
+
+        .ago-value {
+            color: var(--glow);
+            text-shadow: 0 0 5px var(--glow);
+        }
+
+        .ago-time {
+            margin-left: auto;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>AGYOS COCKPIT</h1>
+    <div class="grid">
+        <!-- command: links in HTML might require specific settings, so we prioritize the URL -->
+        <a href="https://chatgpt.com" class="card"
+            onclick="alert('Use Command Palette or Cockpit.md for direct command firing if this opens externally.')">
+            <div>CHATGPT</div>
+            <div class="tag">UNIT-01 (Lite)</div>
+        </a>
+        <a href="https://gemini.google.com/app" class="card">
+            <div>GEMINI</div>
+            <div class="tag">UNIT-02 (Lite)</div>
+        </a>
+        <a href="https://chat.mistral.ai" class="card">
+            <div>MISTRAL</div>
+            <div class="tag">UNIT-03 (Lite)</div>
+        </a>
+        <a href="https://x.com/home" class="card">
+            <div>X (TRANS)</div>
+            <div class="tag">UNIT-04 (Lite)</div>
+        </a>
+    </div>
+    <div style="margin-top: 40px; font-size: 0.8rem; color: #666;">
+        *Open AgyOS_Cockpit.md for native command-click support.
+    </div>
+
+    <!-- AGO Status Bar -->
+    <div class="ago-bar">
+        <div class="ago-brand">AGO / ORBIT</div>
+        <div class="ago-item">
+            <span class="ago-label">GEMINI:</span>
+            <span class="ago-value">88%</span>
+        </div>
+        <div class="ago-item">
+            <span class="ago-label">GPT-4o:</span>
+            <span class="ago-value">READY</span>
+        </div>
+        <div class="ago-item">
+            <span class="ago-label">CLAUDE:</span>
+            <span class="ago-value" style="color: #ffaa00;">12/50</span>
+        </div>
+        <div class="ago-item">
+            <span class="ago-label">LATENCY:</span>
+            <span class="ago-value">42ms</span>
+        </div>
+        <div class="ago-time" id="clock">--:--:--</div>
+    </div>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('clock').innerText = now.toTimeString().split(' ')[0];
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+</body>
+
+</html>

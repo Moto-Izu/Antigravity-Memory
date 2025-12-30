@@ -1,0 +1,14 @@
+{
+    "livePreview.openPreviewTarget": "Embedded Preview",
+    "browse-lite.storeUserData": true,
+    "browse-lite.startUrl": "https://gemini.google.com/app",
+    "workbench.externalUriOpeners": {
+        "http://localhost:*": "antfu.browse-lite"
+    },
+    "workbench.editor.enablePreview": true,
+    "markdown.links.openLocation": "beside",
+    "livePreview.autoRefreshPreview": "On After Delay",
+    "livePreview.delayBeforeRefresh": 300,
+    "livePreview.notifyOnServerStop": false,
+    "livePreview.showServerStatusPreview": false
+}
