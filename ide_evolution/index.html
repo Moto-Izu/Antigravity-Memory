@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identity of Tools | nano banana pro 3</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&family=Outfit:wght@700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #050505;
+            --blue: #142850;
+            --gold: #b8860b;
+            --txt: #fff;
+            --nano: #ffde00;
+            --glass-bg: rgba(255, 255, 255, 0.07);
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            background: var(--bg);
+            font-family: 'Inter', sans-serif;
+            color: var(--txt);
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+
+        .title {
+            position: absolute;
+            top: 4%;
+            width: 100%;
+            text-align: center;
+            z-index: 20;
+            font-family: 'Outfit';
+            font-size: 3rem;
+            letter-spacing: 12px;
+            text-transform: uppercase;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .side {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            position: relative;
+            padding: 80px 40px;
+        }
+
+        .left {
+            background: linear-gradient(135deg, #0a192f 0%, var(--blue) 100%);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .right {
+            background: linear-gradient(135deg, #1a1a1a 0%, var(--gold) 100%);
+        }
+
+        .stack {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo-item {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 480px;
+            padding: 25px 35px;
+            background: var(--glass-bg);
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .logo-item:hover {
+            transform: scale(1.05) translateX(15px);
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .prod-name {
+            font-weight: 800;
+            font-size: 2.4rem;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            letter-spacing: -1px;
+        }
+
+        .catchphrase {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-style: italic;
+            font-weight: 400;
+            padding-left: 5px;
+        }
+
+        .big-text {
+            font-size: 10rem;
+            font-weight: 900;
+            opacity: 0.15;
+            letter-spacing: -5px;
+            text-align: center;
+            line-height: 0.85;
+            position: absolute;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .left .big-text {
+            bottom: 15%;
+            right: 5%;
+            text-align: right;
+        }
+
+        .right .big-text {
+            opacity: 0.95;
+            color: var(--nano);
+            text-shadow: 0 0 50px rgba(255, 222, 0, 0.6);
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+        }
+
+        .label {
+            position: absolute;
+            bottom: 5%;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            font-size: 2rem;
+            opacity: 0.9;
+            z-index: 20;
+        }
+
+        .core-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 10;
+            gap: 40px;
+        }
+
+        .core {
+            width: 220px;
+            height: 220px;
+            background: radial-gradient(circle, #fff 0%, var(--nano) 60%, transparent 100%);
+            border-radius: 50%;
+            box-shadow: 0 0 100px var(--nano);
+            animation: pulse-large 3s infinite ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .core-text {
+            color: #000;
+            font-weight: 900;
+            font-size: 1.6rem;
+            text-align: center;
+            line-height: 1;
+            letter-spacing: 2px;
+        }
+
+        @keyframes pulse-large {
+
+            0%,
+            100% {
+                transform: scale(1);
+                filter: brightness(1);
+                box-shadow: 0 0 80px var(--nano);
+            }
+
+            50% {
+                transform: scale(1.15);
+                filter: brightness(1.4);
+                box-shadow: 0 0 150px var(--nano);
+            }
+        }
+
+        .right-catchphrase {
+            font-size: 2.2rem;
+            color: #fff;
+            font-weight: 700;
+            text-align: center;
+            max-width: 600px;
+            line-height: 1.2;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            z-index: 10;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 0.8rem;
+            letter-spacing: 4px;
+            z-index: 30;
+        }
+
+        .footer span {
+            color: var(--nano);
+            font-weight: 900;
+        }
+
+        /* Decoration */
+        .grid-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid-overlay"></div>
+    <div class="title">Identity of Tools</div>
+    <div class="container">
+        <!-- Human Side -->
+        <div class="side left">
+            <div class="big-text">EDITOR<br>IDE</div>
+            <div class="stack">
+                <div class="logo-item">
+                    <div class="prod-name">📝 VS Code</div>
+                    <div class="catchphrase">"Code editing. Redefined."</div>
+                </div>
+                <div class="logo-item" style="margin-left: 20px;">
+                    <div class="prod-name">🛰️ Cursor</div>
+                    <div class="catchphrase">"The AI-first code editor."</div>
+                </div>
+                <div class="logo-item" style="margin-left: 40px;">
+                    <div class="prod-name">🌊 Windsurf</div>
+                    <div class="catchphrase">"The world's first agentic IDE."</div>
+                </div>
+            </div>
+            <div class="label">Tools for Humans</div>
+        </div>
+
+        <!-- Agent Side -->
+        <div class="side right">
+            <div class="big-text">AGENTIC OS</div>
+            <div class="core-container">
+                <div class="core">
+                    <div class="core-text">ANTI<br>GRAVITY</div>
+                </div>
+                <div class="right-catchphrase">"The development workflow, reimagined."</div>
+            </div>
+            <div class="label">The New Reality</div>
+        </div>
+    </div>
+    <div class="footer">NANO BANANA <span>PRO 3</span></div>
+</body>
+
+</html>

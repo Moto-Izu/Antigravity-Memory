@@ -1,0 +1,46 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background Gradient definition -->
+    <defs>
+        <linearGradient id="orbit_grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#00ffcc;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#0099ff;stop-opacity:1" />
+        </linearGradient>
+        <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="5" result="blur" />
+            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
+    </defs>
+
+    <!-- Background for visibility -->
+    <rect width="200" height="200" fill="#050505" />
+
+    <!-- Outer Orbit Ring -->
+    <circle cx="100" cy="100" r="80" stroke="url(#orbit_grad)" stroke-width="0.5" stroke-dasharray="10 5"
+        opacity="0.3" />
+
+    <!-- The 'A' (Antigravity) Geometric Form -->
+    <path d="M100 40L140 140H60L100 40Z" fill="none" stroke="url(#orbit_grad)" stroke-width="2"
+        stroke-linejoin="round" />
+
+    <!-- Floating Gravity Nodes -->
+    <circle cx="100" cy="40" r="4" fill="#00ffcc" filter="url(#glow)">
+        <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="60" cy="140" r="3" fill="#00ffcc" opacity="0.6" />
+    <circle cx="140" cy="140" r="3" fill="#00ffcc" opacity="0.6" />
+
+    <!-- The Orbital Arc (The AGO 'O') -->
+    <path d="M50 100C50 72.3858 72.3858 50 100 50C127.614 50 150 72.3858 150 100C150 127.614 127.614 150 100 150"
+        stroke="#00ffcc" stroke-width="4" stroke-linecap="round" filter="url(#glow)">
+        <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="10s"
+            repeatCount="indefinite" />
+    </path>
+
+    <!-- Center Core (The Eye of Intelligence) -->
+    <rect x="90" y="90" width="20" height="20" rx="4" fill="#0a0a0a" stroke="#00ffcc" stroke-width="1" />
+    <circle cx="100" cy="100" r="2" fill="#00ffcc" filter="url(#glow)" />
+
+    <!-- Text Branding -->
+    <text x="100" y="180" text-anchor="middle" fill="#00ffcc" font-family="monospace" font-size="14" font-weight="bold"
+        letter-spacing="4">ANTIGRAVITY / AGO</text>
+</svg>
